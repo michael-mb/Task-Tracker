@@ -14,8 +14,9 @@ export default {
     task: Object
   },
   methods:{
-    onDelete(taskId){
-      console.log(taskId);
+    onDelete(id){
+      //console.log(taskId);
+      this.$emit('delete-task', id)
     }
   }
 }
