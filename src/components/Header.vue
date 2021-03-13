@@ -1,9 +1,8 @@
 <template>
   <header>
     <h1>{{title}}</h1>
-
-                                                <!-- Quand tu mets les : ca veut dire que tu veux use les variables  -->
-    <Button @toggle-form="$emit('toggle-form')" :text="showAddTask ? 'Close' : 'Add Task' " :color="showAddTask ? 'red' : 'green'" :showAddTask="showAddTask"></Button>
+    <!-- Quand tu mets les : ca veut dire que tu veux use les variables  -->
+    <Button v-show="homePage" @toggle-form="$emit('toggle-form')" :text="showAddTask ? 'Close' : 'Add Task' " :color="showAddTask ? 'red' : 'green'" :showAddTask="showAddTask"></Button>
   </header>
 </template>
 
@@ -23,6 +22,11 @@ export default {
   },
   components:{
     Button
+  },
+  computed:{
+    homePage(){
+      return this.$route.path === '/';
+    }
   },
   emits: ['toggle-form']
 }
