@@ -1,0 +1,11 @@
+= Task Tracker App
+
+This is a ToDo list application built with VueJs.
+
+== Installation
+1. Clone this repository
+2. Go in you-directory/Task-Tracker
+3. npm install
+4. npm run serve
+
+image::/task.png?raw=true[A map , 400, align="center",home page image]
