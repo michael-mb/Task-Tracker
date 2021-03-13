@@ -8,4 +8,4 @@ This is a ToDo list application built with VueJs.
 3. npm install
 4. npm run serve
 
-image::/task.png?raw=true[A map , 400, align="center",home page image]
+image::/task.png?raw=true[A  map , 400,  align="center",home page image]
