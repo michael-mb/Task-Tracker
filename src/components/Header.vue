@@ -1,7 +1,9 @@
 <template>
   <header>
     <h1>{{title}}</h1>
-    <Button text="Add Task" color="red"></Button>
+
+                                                <!-- Quand tu mets les : ca veut dire que tu veux use les variables  -->
+    <Button @toggle-form="$emit('toggle-form')" :text="showAddTask ? 'Close' : 'Add Task' " :color="showAddTask ? 'red' : 'green'" :showAddTask="showAddTask"></Button>
   </header>
 </template>
 
@@ -14,11 +16,15 @@ export default {
     title: {
       type: String,
       default: 'Hello World'
-    }
+    },
+    showAddTask : {
+      type: Boolean,
+    },
   },
   components:{
     Button
-  }
+  },
+  emits: ['toggle-form']
 }
 </script>
 
