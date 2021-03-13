@@ -1,74 +1,35 @@
 <template>
   <div class="container">
     <Header @toggle-form="toggleForm" title="Task Tracker" :showAddTask="showAddTask"></Header>
-    <div>
+    <!--div>
       <AddTask v-if="showAddTask" @add-task="addTask"></AddTask>
     </div>
-    <Tasks  @delete-task="deleteTask" @toggle-reminder="toggleReminder" :tasks="tasks"></Tasks>
+    <Tasks  @delete-task="deleteTask" @toggle-reminder="toggleReminder" :tasks="tasks"></Tasks-->
+
+    <router-view :showAddTask="showAddTask"></router-view>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from "./components/Header";
-import Tasks from "@/components/Tasks";
-import AddTask from "@/components/AddTask";
-
+import Footer from "@/components/Footer";
 export default {
   name: 'App',
   components: {
-    AddTask,
-    Tasks,
+    Footer,
     Header,
   },
   data(){
     return{
-      tasks: [],
       showAddTask: false
     }
   },
   methods:{
-    deleteTask(id){
-      //console.log('task',id);
-      if(confirm('Are you sure?'))
-        this.tasks = this.tasks.filter((task) => task.id !== id)
-    },
-    toggleReminder(id){
-      this.tasks.forEach( (task) =>{
-        if(task.id === id){
-          task.reminder = !task.reminder
-        }
-      })
-    },
-    addTask(task){
-      //this.tasks.push(task)
-      this.tasks = [...this.tasks, task]
-    },
     toggleForm(){
       this.showAddTask = !this.showAddTask
     }
   },
-  created() {
-    this.tasks = [
-      {
-        id:1,
-        text: 'Doctor',
-        day: '23.03.2021',
-        reminder: true
-      },
-      {
-        id:2,
-        text: 'Michael Meeting',
-        day: '27.03.2021',
-        reminder: false
-      },
-      {
-        id:3,
-        text: 'Meeting at School',
-        day: '01 .04.2021',
-        reminder: true
-      },
-    ]
-  }
 }
 </script>
 
